@@ -1,0 +1,246 @@
+# 🏗️ General Frontend Architecture Rules
+# Based on 18 years of professional front-end development experience
+# Inspired by ponto-pj project patterns and awesome-cursorrules standards
+
+## 📋 Project Overview
+This project follows Clean Architecture principles with a focus on maintainability, scalability, and performance. All code should be production-ready and follow industry best practices based on 18 years of professional front-end development experience.
+
+## 🎯 Core Principles
+
+### 🧹 Clean Code & SOLID
+- Follow Single Responsibility Principle (SRP) - each function/component has one reason to change
+- Write self-documenting code with clear, descriptive names
+- Keep functions small and focused (max 20-30 lines)
+- Avoid deep nesting (>3 levels)
+- Use meaningful variable and function names
+- Prefer composition over inheritance
+
+### 🔧 TypeScript Excellence
+- Always use explicit typing for exported functions and interfaces
+- Prefer `interface` over `type` for object contracts
+- Never use `any`, use `unknown` with type guards
+- Use union types or enums for finite sets
+- Enable strict mode in tsconfig.json
+- Use generics for reusable components and functions
+
+### 🏛️ Architecture Patterns
+- Use Repository Pattern for all external API calls
+- Separate business logic from UI components
+- Create custom hooks/composables for reusable logic
+- Use dependency injection for services
+- Implement proper error boundaries
+- Follow the principle of least privilege
+
+## 📁 Project Structure
+```
+src/
+├── components/          # UI components
+│   ├── common/         # Reusable components
+│   ├── features/       # Feature-specific components
+│   └── layout/         # Layout components
+├── hooks/              # Custom hooks (React) / Composables (Vue)
+├── services/           # Business logic services
+├── repositories/       # Data access layer
+├── stores/            # State management
+├── types/             # TypeScript definitions
+├── utils/             # Utility functions
+└── pages/             # Page components
+```
+
+## 🎯 Component Patterns
+- Separate presentational and container components
+- Props should be explicit and typed with interfaces
+- Use composition over inheritance
+- Keep components pure when possible
+- Handle loading, error, and success states properly
+- Implement proper accessibility (ARIA labels, keyboard navigation)
+
+## 📦 Code Organization
+- One file, one responsibility
+- Group related functionality together
+- Use barrel exports (index.ts) for clean imports
+- Keep imports organized and minimal
+- Use absolute imports with path mapping
+- Follow consistent naming conventions
+
+## 🔒 Security & Performance
+- Validate all user inputs
+- Sanitize data before rendering
+- Use HTTPS in production
+- Implement proper CORS policies
+- Optimize bundle size with code splitting
+- Use lazy loading for routes and components
+- Implement proper caching strategies
+
+## 📝 Code Style
+- Use consistent naming conventions (camelCase for variables, PascalCase for components)
+- Follow ESLint and Prettier rules
+- Write meaningful commit messages using conventional commits
+- Add JSDoc for complex functions
+- Keep line length under 100 characters
+- Use meaningful comments for complex logic
+
+## 🧪 Testing Strategy
+- Write unit tests for business logic
+- Test components with user interactions
+- Mock external dependencies properly
+- Aim for 40%+ code coverage
+- Use meaningful test descriptions
+- Test error scenarios and edge cases
+
+## 🌐 Internationalization
+- Keep all strings translatable
+- Use i18n library for text management
+- Support RTL languages when needed
+- Format dates and numbers properly
+- Handle pluralization correctly
+- Use proper locale settings
+
+## 🚀 Performance Best Practices
+- Use React.memo/Vue.memo for expensive components
+- Implement useMemo/computed for expensive calculations
+- Use useCallback for function props
+- Implement lazy loading for routes
+- Optimize images and assets
+- Use proper caching headers
+- Monitor Core Web Vitals
+
+## 🔄 State Management
+- Use appropriate state management for your framework
+- Keep state normalized and flat
+- Implement proper state persistence
+- Handle loading and error states
+- Use optimistic updates when appropriate
+- Implement proper state synchronization
+
+## 📊 Error Handling
+- Implement proper error boundaries
+- Use try-catch for async operations
+- Provide meaningful error messages
+- Log errors appropriately
+- Handle network failures gracefully
+- Implement retry mechanisms
+
+## 🎨 Styling Guidelines
+- Use utility-first CSS (Tailwind CSS)
+- Implement responsive design patterns
+- Follow design system guidelines
+- Use CSS custom properties for theming
+- Implement proper dark mode support
+- Ensure good color contrast ratios
+
+## 📱 Mobile-First Approach
+- Design for mobile first
+- Implement touch-friendly interfaces
+- Optimize for mobile performance
+- Test on real devices
+- Consider offline functionality
+- Implement proper PWA features
+
+## 🔍 Code Quality
+- Use static analysis tools
+- Implement proper linting rules
+- Use TypeScript strict mode
+- Follow consistent code formatting
+- Implement proper documentation
+- Use meaningful variable names
+
+## 🚀 Deployment & CI/CD
+- Use proper environment variables
+- Implement proper build optimization
+- Use CDN for static assets
+- Implement proper monitoring
+- Use proper logging strategies
+- Implement proper backup strategies
+
+## 📚 Documentation
+- Write clear README files
+- Document complex business logic
+- Use JSDoc for functions
+- Maintain API documentation
+- Document deployment procedures
+- Keep documentation up to date
+
+## 🎯 Example Patterns
+
+### Repository Pattern
+```typescript
+interface Repository<T> {
+  getAll(): Promise<T[]>
+  getById(id: string): Promise<T | null>
+  create(data: Partial<T>): Promise<T>
+  update(id: string, data: Partial<T>): Promise<T>
+  delete(id: string): Promise<void>
+}
+```
+
+### Error Handling
+```typescript
+try {
+  const result = await apiCall()
+  return { success: true, data: result }
+} catch (error) {
+  console.error('API call failed:', error)
+  return { 
+    success: false, 
+    error: error instanceof Error ? error.message : 'Unknown error' 
+  }
+}
+```
+
+### Component Structure
+```typescript
+interface ComponentProps {
+  data: DataType
+  onAction: (id: string) => void
+  loading?: boolean
+  error?: string | null
+}
+
+export const Component: React.FC<ComponentProps> = ({
+  data,
+  onAction,
+  loading = false,
+  error = null
+}) => {
+  if (loading) return <LoadingSpinner />
+  if (error) return <ErrorMessage message={error} />
+  
+  return (
+    <div className="component">
+      {/* Component content */}
+    </div>
+  )
+}
+```
+
+## 🎯 Next Steps
+1. Implement proper testing strategy
+2. Set up CI/CD pipeline
+3. Add performance monitoring
+4. Implement proper error tracking
+5. Add comprehensive documentation
+6. Set up proper development environment
+
+## ⚠️ Important: Base, Not Silver Bullet
+
+**These rules provide a solid foundation, but they are not a universal solution for all problems.**
+
+- **📖 Read and evaluate**: Always read the rules and see if they make sense for your project
+- **🔧 Adapt as needed**: Each project has its own particularities
+- **🎯 Use as starting point**: Customize based on specific needs
+- **🧠 Keep critical thinking**: Rules are guides, not absolute laws
+
+**Remember**: Best practices come from real experience and the specific context of your project. Use these rules as a **well-paved path**, but always question and adapt as necessary.
+
+## 🏆 Expertise Applied
+- **18 years** of professional front-end development
+- **Large-scale projects** in production
+- **Scalable architectures** tested and proven
+- **Performance optimization** expertise
+- **Security best practices** knowledge
+- **Real-world patterns** from production projects
+
+---
+
+*Based on 18 years of professional front-end development experience, [ponto-pj](https://github.com/tiagovilasboas/ponto-pj) project patterns, and [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) standards* 

@@ -1,0 +1,240 @@
+# 🔷 Angular Rules
+# Based on ponto-pj project patterns
+
+## 🏗️ Project Structure
+```
+src/
+├── app/
+│   ├── components/      # Angular components
+│   │   ├── common/     # Reusable components
+│   │   ├── features/   # Feature-specific components
+│   │   └── layout/     # Layout components
+│   ├── services/       # Business logic services
+│   ├── repositories/   # API data access layer
+│   ├── stores/         # State management (NgRx/Akita)
+│   ├── types/          # TypeScript definitions
+│   ├── utils/          # Utility functions
+│   └── pages/          # Page components
+├── shared/             # Shared modules and components
+└── core/              # Core services and guards
+```
+
+## 🎯 Component Patterns
+- Use standalone components when possible
+- Separate presentational and container components
+- Props should be explicit and typed with interfaces
+- Use OnPush change detection strategy
+- Keep components pure when possible
+
+## 🔄 Services
+- Create services for reusable logic
+- Follow naming convention: `<Feature>Service`
+- Use dependency injection properly
+- Handle loading, error, and success states
+- Use TypeScript for service return types
+
+## 📊 State Management
+- Use NgRx for complex state management
+- Use Akita for simpler state management
+- Use BehaviorSubject for reactive state
+- Avoid prop drilling with proper state structure
+- Implement proper state persistence
+
+## 🔄 Data Fetching
+- Use Repository Pattern for API calls
+- Create services for data fetching
+- Handle loading and error states properly
+- Implement proper caching strategies
+- Use Angular HttpClient with interceptors
+
+## 🎨 Styling
+- Use Angular Material for UI components
+- Use Tailwind CSS for utility-first styling
+- Keep styles close to components
+- Use Angular animations for transitions
+- Implement responsive design patterns
+
+## 🚀 Performance
+- Use OnPush change detection strategy
+- Implement trackBy functions for ngFor
+- Use async pipe for observables
+- Implement lazy loading for modules
+- Optimize bundle size with code splitting
+
+## 🧪 Testing
+- Use Angular Testing Utilities for component tests
+- Test user interactions, not implementation
+- Mock external dependencies properly
+- Test services with TestBed
+- Implement integration tests for data flows
+
+## 🔧 TypeScript Integration
+- Type all properties with interfaces
+- Use generics for reusable components
+- Implement proper error types
+- Use discriminated unions for state
+- Enable strict mode in tsconfig
+
+## 🎯 Example Patterns
+
+### Component Structure
+```typescript
+@Component({
+  selector: 'app-feature',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <div class="component">
+      <h3>{{ title }}</h3>
+      <p>{{ description }}</p>
+      <button (click)="handleAction()">Action</button>
+    </div>
+  `
+})
+export class FeatureComponent {
+  @Input() title!: string
+  @Input() description!: string
+  @Output() action = new EventEmitter<string>()
+  
+  handleAction(): void {
+    this.action.emit('some-id')
+  }
+}
+```
+
+### Service Pattern
+```typescript
+interface FeatureService {
+  getData(): Observable<DataType[]>
+  createData(data: CreateDataType): Observable<DataType>
+  updateData(id: string, data: UpdateDataType): Observable<DataType>
+  deleteData(id: string): Observable<void>
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FeatureService implements FeatureService {
+  constructor(private http: HttpClient) {}
+  
+  getData(): Observable<DataType[]> {
+    return this.http.get<DataType[]>('/api/data')
+  }
+  
+  createData(data: CreateDataType): Observable<DataType> {
+    return this.http.post<DataType>('/api/data', data)
+  }
+}
+```
+
+### Repository Pattern
+```typescript
+interface Repository {
+  getData(): Observable<DataType[]>
+  createData(data: CreateDataType): Observable<DataType>
+  updateData(id: string, data: UpdateDataType): Observable<DataType>
+  deleteData(id: string): Observable<void>
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiRepository implements Repository {
+  constructor(private http: HttpClient) {}
+  
+  getData(): Observable<DataType[]> {
+    return this.http.get<DataType[]>('/api/data')
+  }
+}
+```
+
+### NgRx Store Pattern
+```typescript
+// Actions
+export const loadData = createAction('[Feature] Load Data')
+export const loadDataSuccess = createAction(
+  '[Feature] Load Data Success',
+  props<{ data: DataType[] }>()
+)
+export const loadDataFailure = createAction(
+  '[Feature] Load Data Failure',
+  props<{ error: string }>()
+)
+
+// Reducer
+export interface FeatureState {
+  data: DataType[]
+  loading: boolean
+  error: string | null
+}
+
+export const initialState: FeatureState = {
+  data: [],
+  loading: false,
+  error: null
+}
+
+export const featureReducer = createReducer(
+  initialState,
+  on(loadData, state => ({ ...state, loading: true })),
+  on(loadDataSuccess, (state, { data }) => ({
+    ...state,
+    data,
+    loading: false,
+    error: null
+  })),
+  on(loadDataFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error
+  }))
+)
+
+// Effects
+@Injectable()
+export class FeatureEffects {
+  loadData$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadData),
+      mergeMap(() => this.repository.getData()
+        .pipe(
+          map(data => loadDataSuccess({ data })),
+          catchError(error => of(loadDataFailure({ error: error.message })))
+        ))
+    )
+  )
+  
+  constructor(
+    private actions$: Actions,
+    private repository: Repository
+  ) {}
+}
+```
+
+### Reactive Forms Pattern
+```typescript
+@Component({
+  selector: 'app-form',
+  template: `
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input formControlName="name" placeholder="Name">
+      <input formControlName="email" placeholder="Email">
+      <button type="submit">Submit</button>
+    </form>
+  `
+})
+export class FormComponent {
+  form = this.fb.group({
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]]
+  })
+  
+  constructor(private fb: FormBuilder) {}
+  
+  onSubmit(): void {
+    if (this.form.valid) {
+      console.log(this.form.value)
+    }
+  }
+}
+``` 
