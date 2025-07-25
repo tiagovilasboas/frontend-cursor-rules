@@ -1,0 +1,45 @@
+{
+  "name": "frontend-cursor-rules",
+  "version": "1.0.0",
+  "description": "Frontend Cursor Rules Generator - Based on 18 years of professional front-end development experience",
+  "main": "scripts/cross-platform/generate-rules.js",
+  "scripts": {
+    "generate": "node scripts/cross-platform/generate-rules.js",
+    "generate:react": "node scripts/cross-platform/generate-rules.js react",
+    "generate:vue": "node scripts/cross-platform/generate-rules.js vue",
+    "generate:angular": "node scripts/cross-platform/generate-rules.js angular",
+    "generate:general": "node scripts/cross-platform/generate-rules.js general",
+    "generate:all": "node scripts/cross-platform/generate-rules.js --all",
+    "help": "node scripts/cross-platform/generate-rules.js --help"
+  },
+  "keywords": [
+    "cursor",
+    "rules",
+    "frontend",
+    "react",
+    "vue",
+    "angular",
+    "typescript",
+    "clean-code",
+    "professional",
+    "expertise",
+    "18-years-experience"
+  ],
+  "author": {
+    "name": "Tiago Vilas Boas",
+    "email": "tiago@example.com",
+    "url": "https://github.com/tiagovilasboas"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tiagovilasboas/frontend-cursor-rules"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/tiagovilasboas/frontend-cursor-rules/issues"
+  },
+  "homepage": "https://github.com/tiagovilasboas/frontend-cursor-rules#readme"
+} 
