@@ -2,15 +2,15 @@
   "name": "frontend-cursor-rules",
   "version": "1.0.0",
   "description": "Frontend Cursor Rules Generator - Based on 18 years of professional front-end development experience",
-  "main": "scripts/cross-platform/generate-rules.js",
+  "main": "scripts/generate-rules.js",
   "scripts": {
-    "generate": "node scripts/cross-platform/generate-rules.js",
-    "generate:react": "node scripts/cross-platform/generate-rules.js react",
-    "generate:vue": "node scripts/cross-platform/generate-rules.js vue",
-    "generate:angular": "node scripts/cross-platform/generate-rules.js angular",
-    "generate:general": "node scripts/cross-platform/generate-rules.js general",
-    "generate:all": "node scripts/cross-platform/generate-rules.js --all",
-    "help": "node scripts/cross-platform/generate-rules.js --help"
+    "generate": "node scripts/generate-rules.js",
+    "generate:react": "node scripts/generate-rules.js react",
+    "generate:vue": "node scripts/generate-rules.js vue",
+    "generate:angular": "node scripts/generate-rules.js angular",
+    "generate:general": "node scripts/generate-rules.js general",
+    "generate:all": "node scripts/generate-rules.js --all",
+    "help": "node scripts/generate-rules.js --help"
   },
   "keywords": [
     "cursor",

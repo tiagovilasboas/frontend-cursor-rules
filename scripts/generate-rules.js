@@ -40,7 +40,12 @@ const colors = {
 }
 
 function log(message, color = 'reset') {
-  console.log(`${colors[color]}${message}${colors.reset}`)
+  // Disable colors on Windows for better compatibility
+  if (process.platform === 'win32') {
+    console.log(message)
+  } else {
+    console.log(`${colors[color]}${message}${colors.reset}`)
+  }
 }
 
 function showHelp() {
@@ -69,7 +74,7 @@ function showHelp() {
 
 function copyRules(sourceFile, targetDir) {
   try {
-    const sourcePath = path.join(__dirname, '..', '..', sourceFile)
+    const sourcePath = path.join(__dirname, '..', sourceFile)
     const targetPath = path.join(targetDir, '.cursorrules')
     
     if (!fs.existsSync(sourcePath)) {

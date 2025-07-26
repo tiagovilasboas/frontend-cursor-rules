@@ -47,75 +47,24 @@ Templates para React, Vue, Angular com **18 anos de experiência profissional** 
 
 ## 🚀 Uso Rápido
 
-### 🐧 Linux/macOS (Bash)
-```bash
-# Gerar regras para React
-./scripts/linux/generate-rules.sh react
-
-# Gerar regras para Vue
-./scripts/linux/generate-rules.sh vue
-
-# Gerar regras para Angular
-./scripts/linux/generate-rules.sh angular
-
-# Gerar regras gerais
-./scripts/linux/generate-rules.sh general
-
-# Gerar todas as regras
-./scripts/linux/generate-rules.sh --all
-
-# Ver ajuda
-./scripts/linux/generate-rules.sh --help
-```
-
-### 🪟 Windows (PowerShell)
-```powershell
-# Gerar regras para React
-.\scripts\windows\generate-rules.ps1 react
-
-# Gerar regras para Vue
-.\scripts\windows\generate-rules.ps1 vue
-
-# Gerar regras para Angular
-.\scripts\windows\generate-rules.ps1 angular
-
-# Gerar todas as regras
-.\scripts\windows\generate-rules.ps1 -All
-
-# Ver ajuda
-.\scripts\windows\generate-rules.ps1 -Help
-```
-
 ### 🔄 Node.js (Cross-platform)
 ```bash
-# Gerar regras para React
-node scripts/cross-platform/generate-rules.js react
-
-# Gerar regras para Vue
-node scripts/cross-platform/generate-rules.js vue
-
-# Gerar regras para Angular
-node scripts/cross-platform/generate-rules.js angular
-
-# Gerar regras gerais
-node scripts/cross-platform/generate-rules.js general
+# Gerar regras para uma stack específica
+node scripts/generate-rules.js [react|vue|angular|general]
 
 # Gerar todas as regras
-node scripts/cross-platform/generate-rules.js --all
+node scripts/generate-rules.js --all
 
 # Ver ajuda
-node scripts/cross-platform/generate-rules.js --help
+node scripts/generate-rules.js --help
+
+# Especificar diretório de saída
+node scripts/generate-rules.js react --output=./my-project
 ```
 
 ### 📦 NPM Scripts
 ```bash
-# Usando npm scripts
-npm run generate:react
-npm run generate:vue
-npm run generate:angular
-npm run generate:general
-npm run generate:all
-npm run help
+npm run generate:[react|vue|angular|general|all]
 ```
 
 ## 📁 Estrutura
@@ -133,77 +82,7 @@ frontend-cursor-rules/
 │   ├── 🟢 VUE/.cursorrules
 │   └── 🔷 ANGULAR/.cursorrules
 └── 📁 scripts/
-    ├── 🐧 linux/
-    │   └── generate-rules.sh
-    ├── 🪟 windows/
-    │   └── generate-rules.ps1
-    └── 🔄 cross-platform/
-        └── generate-rules.js
-```
-
-## 🎯 Exemplos de Uso
-
-### Para um projeto React
-```bash
-# Linux/macOS
-./scripts/linux/generate-rules.sh react
-
-# Windows
-.\scripts\windows\generate-rules.ps1 react
-
-# Node.js
-node scripts/cross-platform/generate-rules.js react
-
-# NPM
-npm run generate:react
-
-# Cria .cursorrules com regras específicas do React
-```
-
-### Para um projeto Vue
-```bash
-# Linux/macOS
-./scripts/linux/generate-rules.sh vue
-
-# Windows
-.\scripts\windows\generate-rules.ps1 vue
-
-# Node.js
-node scripts/cross-platform/generate-rules.js vue
-
-# NPM
-npm run generate:vue
-
-# Cria .cursorrules com regras específicas do Vue
-```
-
-### Para um projeto Angular
-```bash
-# Linux/macOS
-./scripts/linux/generate-rules.sh angular
-
-# Windows
-.\scripts\windows\generate-rules.ps1 angular
-
-# Node.js
-node scripts/cross-platform/generate-rules.js angular
-
-# NPM
-npm run generate:angular
-
-# Cria .cursorrules com regras específicas do Angular
-```
-
-### Para um diretório específico
-```bash
-# Linux/macOS
-./scripts/linux/generate-rules.sh react --output=./my-react-project
-
-# Windows
-.\scripts\windows\generate-rules.ps1 react -Output .\my-react-project
-
-# Node.js
-node scripts/cross-platform/generate-rules.js react --output=./my-react-project
+    └── generate-rules.js
 ```
 
 ## 📊 Regras Base (ponto-pj)
@@ -214,41 +93,11 @@ node scripts/cross-platform/generate-rules.js react --output=./my-react-project
 - **Component separation** (presentational/container)
 - **Custom hooks/composables** para lógica reutilizável
 
-## 🔧 Desenvolvimento
-
-```bash
-# Instalar dependências (se necessário)
-npm install
-
-# Testar o gerador
-npm run help
-npm run generate:react
-```
-
 ## 🛠️ Instalação
-
-### Linux/macOS
-```bash
-# Tornar executável
-chmod +x scripts/linux/generate-rules.sh
-
-# Usar
-./scripts/linux/generate-rules.sh react
-```
-
-### Windows
-```powershell
-# Executar diretamente
-.\scripts\windows\generate-rules.ps1 react
-```
 
 ### Node.js (qualquer OS)
 ```bash
-# Instalar dependências
 npm install
-
-# Usar
-node scripts/cross-platform/generate-rules.js react
 ```
 
 ## 🤝 Contribuindo
