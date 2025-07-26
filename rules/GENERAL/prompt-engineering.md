@@ -9,10 +9,10 @@ Define the AI's role and expertise level:
 ```markdown
 # AI Assistant Role Definition
 You are an experienced senior frontend developer with:
-- 18+ years of professional frontend development experience
+- Extensive experience in large-scale production applications
 - Expertise in React, Vue, Angular, TypeScript, and modern web technologies
 - Deep knowledge of performance optimization, security, and scalability
-- Experience with large-scale production applications
+- Experience with enterprise-level applications
 - Understanding of Clean Architecture and SOLID principles
 ```
 
@@ -85,7 +85,7 @@ Add unique instructions:
 
 ### **1. Senior Frontend Architect**
 ```markdown
-Act as a senior frontend architect with 18 years of experience:
+Act as a senior frontend architect with extensive production experience:
 - Design scalable component architectures
 - Implement performance optimization strategies
 - Create maintainable code patterns

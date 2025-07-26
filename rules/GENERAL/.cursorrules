@@ -1,9 +1,9 @@
 # 🏗️ General Frontend Architecture Rules
-# Based on 18 years of professional front-end development experience
+# Based on real production projects and proven patterns
 # Inspired by ponto-pj project patterns and awesome-cursorrules standards
 
 ## 📋 Project Overview
-This project follows Clean Architecture principles with a focus on maintainability, scalability, and performance. All code should be production-ready and follow industry best practices based on 18 years of professional front-end development experience.
+This project follows Clean Architecture principles with a focus on maintainability, scalability, and performance. All code should be production-ready and follow industry best practices based on real production projects and proven patterns.
 
 ## 🎯 Core Principles
 
@@ -245,8 +245,8 @@ See `prompt-engineering.md` for detailed templates and examples.
 **Remember**: Best practices come from real experience and the specific context of your project. Use these rules as a **well-paved path**, but always question and adapt as necessary.
 
 ## 🏆 Expertise Applied
-- **18 years** of professional front-end development
-- **Large-scale projects** in production
+- **Real production projects** at scale
+- **Large-scale applications** in enterprise environments
 - **Scalable architectures** tested and proven
 - **Performance optimization** expertise
 - **Security best practices** knowledge
@@ -254,4 +254,4 @@ See `prompt-engineering.md` for detailed templates and examples.
 
 ---
 
-*Based on 18 years of professional front-end development experience, [ponto-pj](https://github.com/tiagovilasboas/ponto-pj) project patterns, and [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) standards* 
+*Based on real production projects, [ponto-pj](https://github.com/tiagovilasboas/ponto-pj) project patterns, and [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) standards* 

@@ -7,20 +7,20 @@
 
 > **Regras práticas para fazer o Cursor parar de "inventar" e seguir suas convenções reais**
 
-Templates para React, Vue, Angular com **18 anos de experiência profissional** em desenvolvimento front-end, baseado nas melhores práticas do projeto [ponto-pj](https://github.com/tiagovilasboas/ponto-pj) e inspirado no [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules).
+Templates para React, Vue, Angular baseados em **projetos reais em produção**, com padrões testados e arquiteturas que funcionam em escala. Inspirado nas melhores práticas do projeto [ponto-pj](https://github.com/tiagovilasboas/ponto-pj) e no [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules).
 
 ## 🎯 **Por que este projeto é diferente?**
 
-### 🏆 **18 Anos de Expertise Profissional**
-- **Experiência real** em projetos de grande escala
-- **Padrões testados** em produção
-- **Arquiteturas comprovadas** que funcionam
-- **Boas práticas** extraídas de projetos reais
+### 🏆 **Expertise Baseada em Projetos Reais**
+- **Experiência em projetos de grande escala** em produção
+- **Padrões testados** e comprovados em aplicações enterprise
+- **Arquiteturas que funcionam** em escala real
+- **Boas práticas** extraídas de projetos que sobreviveram ao tempo
 
 ### 📚 **Baseado em Projetos Reais**
-- **[ponto-pj](https://github.com/tiagovilasboas/ponto-pj)**: Projeto em produção com arquitetura limpa
+- **[ponto-pj](https://github.com/tiagovilasboas/ponto-pj)**: Projeto em produção com arquitetura limpa e escalável
 - **[awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules)**: Melhores práticas da comunidade
-- **Foco específico** em front-end moderno
+- **Foco específico** em front-end moderno e performático
 
 ### 🎯 **Foco em Front-end**
 - **React/Next.js** com padrões atuais
@@ -87,13 +87,14 @@ frontend-cursor-rules/
     └── generate-rules.js
 ```
 
-## 📊 Regras Base (ponto-pj)
+## 📊 Regras Base (Projetos Reais)
 
-- **Repository Pattern** para APIs
-- **Clean Code & SOLID** principles
-- **TypeScript strict** mode
+- **Repository Pattern** testado em produção
+- **Clean Code & SOLID** principles aplicados
+- **TypeScript strict** mode para type safety
 - **Component separation** (presentational/container)
 - **Custom hooks/composables** para lógica reutilizável
+- **Performance optimization** patterns comprovados
 
 ## 🧠 **Prompt Engineering**
 
