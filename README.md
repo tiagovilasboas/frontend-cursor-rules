@@ -53,6 +53,15 @@ Templates para React, Vue, Angular baseados em **projetos reais em produção**,
 # Gerar regras para uma stack específica
 node scripts/generate-rules.js [react|vue|angular|svelte|general]
 
+# Gerar regras simples para projetos pequenos
+node scripts/generate-simple.js [react|vue|svelte] [simple|standard|enterprise]
+
+# Atualizar regras automaticamente
+node scripts/update-rules.js update
+
+# Verificar atualizações
+node scripts/update-rules.js check
+
 # Gerar todas as regras
 node scripts/generate-rules.js --all
 
@@ -65,7 +74,16 @@ node scripts/generate-rules.js react --output=./my-project
 
 ### 📦 NPM Scripts
 ```bash
-npm run generate:[react|vue|angular|general|all]
+# Regras completas
+npm run generate:[react|vue|angular|svelte|general|all]
+
+# Regras simples
+npm run generate:simple
+
+# Atualizações
+npm run update
+npm run update:check
+npm run update:status
 ```
 
 ## 📁 Estrutura
@@ -97,6 +115,23 @@ frontend-cursor-rules/
 - **Component separation** (presentational/container)
 - **Custom hooks/composables** para lógica reutilizável
 - **Performance optimization** patterns comprovados
+
+## 🎯 **Níveis de Complexidade**
+
+### **🏗️ Enterprise (Completo)**
+- Para projetos grandes e equipes
+- Todas as regras e padrões
+- Performance, segurança, testes completos
+
+### **📋 Standard (Médio)**
+- Para projetos médios e pequenas equipes
+- Padrões essenciais
+- Testes e performance básicos
+
+### **🎯 Simple (Simples)**
+- Para projetos pequenos e protótipos
+- Padrões básicos
+- Setup mínimo e rápido
 
 ## 🧠 **Prompt Engineering**
 

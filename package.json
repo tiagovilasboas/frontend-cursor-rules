@@ -11,6 +11,10 @@
     "generate:svelte": "node scripts/generate-rules.js svelte",
     "generate:general": "node scripts/generate-rules.js general",
     "generate:all": "node scripts/generate-rules.js --all",
+    "generate:simple": "node scripts/generate-simple.js",
+    "update": "node scripts/update-rules.js update",
+    "update:check": "node scripts/update-rules.js check",
+    "update:status": "node scripts/update-rules.js status",
     "help": "node scripts/generate-rules.js --help"
   },
   "keywords": [
