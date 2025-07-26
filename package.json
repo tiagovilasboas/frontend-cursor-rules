@@ -1,7 +1,7 @@
 {
   "name": "frontend-cursor-rules",
   "version": "1.0.0",
-  "description": "Frontend Cursor Rules Generator - Based on 18 years of professional front-end development experience",
+  "description": "Frontend Cursor Rules Generator - Based on real production projects and proven patterns",
   "main": "scripts/generate-rules.js",
   "scripts": {
     "generate": "node scripts/generate-rules.js",
@@ -23,11 +23,10 @@
     "clean-code",
     "professional",
     "expertise",
-    "18-years-experience"
+    "production-ready"
   ],
   "author": {
     "name": "Tiago Vilas Boas",
-    "email": "tiago@example.com",
     "url": "https://github.com/tiagovilasboas"
   },
   "license": "MIT",
