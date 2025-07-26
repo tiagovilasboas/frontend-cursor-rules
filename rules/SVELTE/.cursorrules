@@ -1,0 +1,364 @@
+# 🎯 Svelte & SvelteKit Architecture Rules
+# Based on real production projects and proven patterns
+# Inspired by SvelteKit best practices and modern Svelte development
+
+## 📋 Project Overview
+This project follows SvelteKit conventions with a focus on performance, maintainability, and developer experience. All code should be production-ready and follow SvelteKit best practices based on real production projects.
+
+## 🎯 Core Principles
+
+### 🧹 Clean Code & SOLID
+- Follow Single Responsibility Principle (SRP) - each component/function has one reason to change
+- Write self-documenting code with clear, descriptive names
+- Keep functions small and focused (max 20-30 lines)
+- Avoid deep nesting (>3 levels)
+- Use meaningful variable and function names
+- Prefer composition over inheritance
+
+### 🔧 TypeScript Excellence
+- Always use explicit typing for exported functions and interfaces
+- Prefer `interface` over `type` for object contracts
+- Never use `any`, use `unknown` with type guards
+- Use union types or enums for finite sets
+- Enable strict mode in tsconfig.json
+- Use generics for reusable components and functions
+
+### 🏛️ SvelteKit Architecture Patterns
+- Use SvelteKit's built-in routing and layouts
+- Separate business logic from UI components
+- Create stores for global state management
+- Use SvelteKit's load functions for data fetching
+- Implement proper error handling with error.svelte
+- Follow the principle of least privilege
+
+## 📁 Project Structure
+```
+src/
+├── lib/                    # Shared components and utilities
+│   ├── components/         # Reusable Svelte components
+│   ├── stores/            # Svelte stores for state management
+│   ├── services/          # Business logic services
+│   ├── types/             # TypeScript definitions
+│   └── utils/             # Utility functions
+├── routes/                # SvelteKit routes
+│   ├── +layout.svelte     # Root layout
+│   ├── +page.svelte       # Home page
+│   └── [dynamic]/         # Dynamic routes
+├── app.html               # HTML template
+└── app.d.ts               # TypeScript declarations
+```
+
+## 🎯 Component Patterns
+- Separate presentational and container components
+- Props should be explicit and typed with interfaces
+- Use composition over inheritance
+- Keep components pure when possible
+- Handle loading, error, and success states properly
+- Implement proper accessibility (ARIA labels, keyboard navigation)
+
+## 📦 Code Organization
+- One file, one responsibility
+- Group related functionality together
+- Use barrel exports (index.ts) for clean imports
+- Keep imports organized and minimal
+- Use absolute imports with path mapping
+- Follow consistent naming conventions
+
+## 🔒 Security & Performance
+- Validate all user inputs
+- Sanitize data before rendering
+- Use HTTPS in production
+- Implement proper CORS policies
+- Optimize bundle size with code splitting
+- Use SvelteKit's built-in optimizations
+- Implement proper caching strategies
+
+## 📝 Code Style
+- Use consistent naming conventions (camelCase for variables, PascalCase for components)
+- Follow ESLint and Prettier rules
+- Write meaningful commit messages using conventional commits
+- Add JSDoc for complex functions
+- Keep line length under 100 characters
+- Use meaningful comments for complex logic
+
+## 🧪 Testing Strategy
+- Write unit tests for business logic
+- Test components with user interactions
+- Mock external dependencies properly
+- Aim for 40%+ code coverage
+- Use meaningful test descriptions
+- Test error scenarios and edge cases
+
+## 🌐 Internationalization
+- Keep all strings translatable
+- Use i18n library for text management
+- Support RTL languages when needed
+- Format dates and numbers properly
+- Handle pluralization correctly
+- Use proper locale settings
+
+## 🚀 Performance Best Practices
+- Use Svelte's built-in reactivity efficiently
+- Implement proper memoization with $: reactive statements
+- Use SvelteKit's built-in optimizations
+- Optimize images and assets
+- Use proper caching headers
+- Monitor Core Web Vitals
+
+## 🔄 State Management
+- Use Svelte stores for global state
+- Keep state normalized and flat
+- Implement proper state persistence
+- Handle loading and error states
+- Use optimistic updates when appropriate
+- Implement proper state synchronization
+
+## 📊 Error Handling
+- Implement proper error boundaries with error.svelte
+- Use try-catch for async operations
+- Provide meaningful error messages
+- Log errors appropriately
+- Handle network failures gracefully
+- Implement retry mechanisms
+
+## 🎨 Styling Guidelines
+- Use utility-first CSS (Tailwind CSS)
+- Implement responsive design patterns
+- Follow design system guidelines
+- Use CSS custom properties for theming
+- Implement proper dark mode support
+- Ensure good color contrast ratios
+
+## 📱 Mobile-First Approach
+- Design for mobile first
+- Implement touch-friendly interfaces
+- Optimize for mobile performance
+- Test on real devices
+- Consider offline functionality
+- Implement proper PWA features
+
+## 🔍 Code Quality
+- Use static analysis tools
+- Implement proper linting rules
+- Use TypeScript strict mode
+- Follow consistent code formatting
+- Implement proper documentation
+- Use meaningful variable names
+
+## 🚀 Deployment & CI/CD
+- Use proper environment variables
+- Implement proper build optimization
+- Use CDN for static assets
+- Implement proper monitoring
+- Use proper logging strategies
+- Implement proper backup strategies
+
+## 📚 Documentation
+- Write clear README files
+- Document complex business logic
+- Use JSDoc for functions
+- Maintain API documentation
+- Document deployment procedures
+- Keep documentation up to date
+
+## 🎯 Example Patterns
+
+### Svelte Store Pattern
+```typescript
+import { writable, derived } from 'svelte/store'
+
+interface User {
+  id: string
+  name: string
+  email: string
+}
+
+// Create a writable store
+export const users = writable<User[]>([])
+
+// Create a derived store
+export const userCount = derived(users, $users => $users.length)
+
+// Store actions
+export const userActions = {
+  addUser: (user: User) => {
+    users.update(current => [...current, user])
+  },
+  
+  removeUser: (id: string) => {
+    users.update(current => current.filter(user => user.id !== id))
+  },
+  
+  updateUser: (id: string, updates: Partial<User>) => {
+    users.update(current => 
+      current.map(user => 
+        user.id === id ? { ...user, ...updates } : user
+      )
+    )
+  }
+}
+```
+
+### SvelteKit Load Function
+```typescript
+// +page.server.ts
+import type { PageServerLoad } from './$types'
+
+interface ApiResponse<T> {
+  data: T
+  success: boolean
+  error?: string
+}
+
+export const load: PageServerLoad = async ({ fetch }) => {
+  try {
+    const response = await fetch('/api/users')
+    const result: ApiResponse<User[]> = await response.json()
+    
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to fetch users')
+    }
+    
+    return {
+      users: result.data,
+      success: true
+    }
+  } catch (error) {
+    return {
+      users: [],
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }
+  }
+}
+```
+
+### Svelte Component Structure
+```svelte
+<script lang="ts">
+  import type { User } from '$lib/types'
+  
+  interface Props {
+    users: User[]
+    loading?: boolean
+    error?: string | null
+    onUserClick: (id: string) => void
+  }
+  
+  export let users: Props['users'] = []
+  export let loading: Props['loading'] = false
+  export let error: Props['error'] = null
+  export let onUserClick: Props['onUserClick']
+  
+  $: hasUsers = users.length > 0
+</script>
+
+{#if loading}
+  <LoadingSpinner />
+{:else if error}
+  <ErrorMessage {error} />
+{:else if hasUsers}
+  <div class="user-list">
+    {#each users as user (user.id)}
+      <UserCard 
+        {user} 
+        on:click={() => onUserClick(user.id)}
+      />
+    {/each}
+  </div>
+{:else}
+  <EmptyState message="No users found" />
+{/if}
+
+<style>
+  .user-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+</style>
+```
+
+### API Service Pattern
+```typescript
+// lib/services/api.ts
+interface ApiClient {
+  get<T>(url: string): Promise<ApiResponse<T>>
+  post<T>(url: string, data: unknown): Promise<ApiResponse<T>>
+  put<T>(url: string, data: unknown): Promise<ApiResponse<T>>
+  delete<T>(url: string): Promise<ApiResponse<T>>
+}
+
+class ApiService implements ApiClient {
+  private baseUrl: string
+  
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl
+  }
+  
+  async get<T>(url: string): Promise<ApiResponse<T>> {
+    try {
+      const response = await fetch(`${this.baseUrl}${url}`)
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Request failed')
+      }
+      
+      return { data, success: true }
+    } catch (error) {
+      return { 
+        data: null as T, 
+        success: false, 
+        error: error instanceof Error ? error.message : 'Unknown error' 
+      }
+    }
+  }
+  
+  // Implement other methods...
+}
+
+export const apiClient = new ApiService('/api')
+```
+
+## 🎯 Next Steps
+1. Implement proper testing strategy
+2. Set up CI/CD pipeline
+3. Add performance monitoring
+4. Implement proper error tracking
+5. Add comprehensive documentation
+6. Set up proper development environment
+
+## 🧠 **Prompt Engineering Guidelines**
+For optimal AI assistance, follow the C.R.E.A.T.E formula:
+- **C**: Character - Define AI role (Senior Svelte Architect, Performance Expert, etc.)
+- **R**: Request - Be specific about requirements
+- **E**: Examples - Provide concrete examples
+- **A**: Adjustments - Refine and iterate
+- **T**: Type - Specify output format
+- **E**: Extras - Add unique instructions
+
+See `prompt-engineering.md` for detailed templates and examples.
+
+## ⚠️ Important: Base, Not Silver Bullet
+
+**These rules provide a solid foundation, but they are not a universal solution for all problems.**
+
+- **📖 Read and evaluate**: Always read the rules and see if they make sense for your project
+- **🔧 Adapt as needed**: Each project has its own particularities
+- **🎯 Use as starting point**: Customize based on specific needs
+- **🧠 Keep critical thinking**: Rules are guides, not absolute laws
+
+**Remember**: Best practices come from real experience and the specific context of your project. Use these rules as a **well-paved path**, but always question and adapt as necessary.
+
+## 🏆 Expertise Applied
+- **Real production projects** at scale
+- **Large-scale SvelteKit applications** in enterprise environments
+- **Scalable architectures** tested and proven
+- **Performance optimization** expertise
+- **Security best practices** knowledge
+- **Real-world patterns** from production projects
+
+---
+
+*Based on real production projects, SvelteKit best practices, and modern Svelte development patterns* 

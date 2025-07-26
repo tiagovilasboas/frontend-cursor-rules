@@ -20,6 +20,11 @@ const STACKS = {
     file: 'rules/ANGULAR/.cursorrules',
     description: 'Angular, TypeScript, NgRx, RxJS'
   },
+  svelte: {
+    name: 'Svelte & SvelteKit',
+    file: 'rules/SVELTE/.cursorrules',
+    description: 'Svelte, SvelteKit, TypeScript, Stores'
+  },
   general: {
     name: 'General Architecture',
     file: 'rules/GENERAL/.cursorrules',

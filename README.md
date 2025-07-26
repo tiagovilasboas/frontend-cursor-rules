@@ -43,6 +43,7 @@ Templates para React, Vue, Angular baseados em **projetos reais em produção**,
 - **⚛️ React** (incluindo Next.js)
 - **🟢 Vue** (incluindo Nuxt.js)
 - **🔷 Angular**
+- **🎯 Svelte** (incluindo SvelteKit)
 - **🏗️ General** (arquitetura geral)
 
 ## 🚀 Uso Rápido
@@ -50,7 +51,7 @@ Templates para React, Vue, Angular baseados em **projetos reais em produção**,
 ### 🔄 Node.js (Cross-platform)
 ```bash
 # Gerar regras para uma stack específica
-node scripts/generate-rules.js [react|vue|angular|general]
+node scripts/generate-rules.js [react|vue|angular|svelte|general]
 
 # Gerar todas as regras
 node scripts/generate-rules.js --all
@@ -82,7 +83,8 @@ frontend-cursor-rules/
 │   │   └── prompt-engineering.md
 │   ├── ⚛️ REACT/.cursorrules
 │   ├── 🟢 VUE/.cursorrules
-│   └── 🔷 ANGULAR/.cursorrules
+│   ├── 🔷 ANGULAR/.cursorrules
+│   └── 🎯 SVELTE/.cursorrules
 └── 📁 scripts/
     └── generate-rules.js
 ```

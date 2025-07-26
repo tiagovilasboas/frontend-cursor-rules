@@ -8,6 +8,7 @@
     "generate:react": "node scripts/generate-rules.js react",
     "generate:vue": "node scripts/generate-rules.js vue",
     "generate:angular": "node scripts/generate-rules.js angular",
+    "generate:svelte": "node scripts/generate-rules.js svelte",
     "generate:general": "node scripts/generate-rules.js general",
     "generate:all": "node scripts/generate-rules.js --all",
     "help": "node scripts/generate-rules.js --help"
