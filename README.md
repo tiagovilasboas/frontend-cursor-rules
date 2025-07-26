@@ -91,7 +91,6 @@ npm run update:status
 
 ```
 frontend-cursor-rules/
-├── 📋 ROADMAP.md
 ├── 📋 README.md
 ├── 📋 CONTRIBUTING.md
 ├── 📋 CODE_OF_CONDUCT.md
@@ -104,6 +103,8 @@ frontend-cursor-rules/
 │   └── 🎯 SVELTE/.cursorrules
 ├── 📁 docs/
 │   ├── README.md
+│   ├── ROADMAP.md
+│   ├── EXAMPLES.md
 │   ├── prompt-engineering.md
 │   ├── METRICS.md
 │   └── REAL_CASE_STUDIES.md
@@ -192,7 +193,7 @@ Contribuições são bem-vindas! Por favor, leia o [CONTRIBUTING.md](CONTRIBUTIN
 
 ## 📋 Roadmap
 
-Veja nosso [ROADMAP.md](ROADMAP.md) para planos futuros e melhorias planejadas.
+Veja nosso [ROADMAP.md](docs/ROADMAP.md) para planos futuros e melhorias planejadas.
 
 ## 📄 Licença
 

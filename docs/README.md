@@ -4,6 +4,8 @@
 
 ### **📁 docs/**
 - **📋 README.md** - Este arquivo (visão geral)
+- **🗺️ ROADMAP.md** - Plano futuro do projeto
+- **📊 EXAMPLES.md** - Exemplos práticos de uso
 - **🧠 prompt-engineering.md** - Guia de prompt engineering
 - **📊 METRICS.md** - Métricas e case studies
 - **📈 REAL_CASE_STUDIES.md** - Análise de cases reais
@@ -24,7 +26,11 @@ prompt-engineering.md          # Guia de prompts
 - **METRICS.md** - Métricas quantitativas
 - **REAL_CASE_STUDIES.md** - Validação por empresas reais
 
-### **3. 📚 Estrutura Lógica**
+### **3. 📚 Documentação do Projeto**
+- **ROADMAP.md** - Plano futuro e desenvolvimento
+- **EXAMPLES.md** - Exemplos práticos de uso
+
+### **4. 📚 Estrutura Lógica**
 
 **📁 rules/** - Regras de desenvolvimento
 - `.cursorrules` - Regras para cada stack
@@ -35,6 +41,8 @@ prompt-engineering.md          # Guia de prompts
 - `prompt-engineering.md` - Como usar a IA
 - `METRICS.md` - Evidências quantitativas
 - `REAL_CASE_STUDIES.md` - Validação real
+- `ROADMAP.md` - Plano futuro
+- `EXAMPLES.md` - Exemplos práticos
 
 ## 🎯 **Fluxo de Uso Recomendado**
 
