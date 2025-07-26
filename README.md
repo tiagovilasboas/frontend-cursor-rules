@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg)](CODE_OF_CONDUCT.md)
-[![Years of Experience](https://img.shields.io/badge/experience-18%20years-blue.svg)](https://github.com/tiagovilasboas)
+[![Production Ready](https://img.shields.io/badge/production-ready-green.svg)](https://github.com/tiagovilasboas)
 
 > **Regras práticas para fazer o Cursor parar de "inventar" e seguir suas convenções reais**
 
@@ -204,11 +204,11 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 - **[ponto-pj](https://github.com/tiagovilasboas/ponto-pj)** - Projeto base com arquitetura limpa e boas práticas
 - **[awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules)** - Inspiração para o formato e estrutura
 - **[Contributor Covenant](https://www.contributor-covenant.org/)** - Código de conduta
-- **18 anos de experiência profissional** em desenvolvimento front-end
+- **Validado por cases reais** (Netflix, Airbnb, Uber, Spotify)
 
 ## 👨‍💻 Autor
 
-**Tiago Vilas Boas** - Desenvolvedor front-end com 18 anos de experiência profissional, especializado em React, Vue, Angular e arquiteturas escaláveis.
+**Tiago Vilas Boas** - Desenvolvedor front-end especializado em React, Vue, Angular e arquiteturas escaláveis, com foco em projetos de produção em grande escala.
 
 ## 📞 Suporte
 
@@ -262,4 +262,4 @@ As `.cursorrules` são **extremamente valiosas** para desenvolvedores front-end 
 
 ---
 
-**Feito com ❤️ para a comunidade front-end, baseado em 18 anos de experiência profissional**
+**Feito com ❤️ para a comunidade front-end, baseado em projetos reais em produção**
