@@ -97,13 +97,16 @@ frontend-cursor-rules/
 ├── 📋 CODE_OF_CONDUCT.md
 ├── 📦 package.json
 ├── 📁 rules/
-│   ├── 🏗️ GENERAL/
-│   │   ├── .cursorrules
-│   │   └── prompt-engineering.md
+│   ├── 🏗️ GENERAL/.cursorrules
 │   ├── ⚛️ REACT/.cursorrules
 │   ├── 🟢 VUE/.cursorrules
 │   ├── 🔷 ANGULAR/.cursorrules
 │   └── 🎯 SVELTE/.cursorrules
+├── 📁 docs/
+│   ├── README.md
+│   ├── prompt-engineering.md
+│   ├── METRICS.md
+│   └── REAL_CASE_STUDIES.md
 └── 📁 scripts/
     └── generate-rules.js
 ```
