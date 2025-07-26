@@ -62,6 +62,18 @@ node scripts/generate-rules.js --help
 node scripts/generate-rules.js react --output=./my-project
 ```
 
+### 🪟 Windows (PowerShell)
+```powershell
+# Gerar regras para uma stack específica
+node scripts/generate-rules.js react
+
+# Gerar todas as regras
+node scripts/generate-rules.js --all
+
+# Especificar diretório de saída
+node scripts/generate-rules.js react --output=.\my-project
+```
+
 ### 📦 NPM Scripts
 ```bash
 npm run generate:[react|vue|angular|general|all]

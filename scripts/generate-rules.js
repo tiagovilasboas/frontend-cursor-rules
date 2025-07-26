@@ -99,6 +99,20 @@ function copyRules(sourceFile, targetDir) {
       log(`📚 Copied prompt-engineering.md to ${promptTargetPath}`, 'cyan')
     }
     
+    // Clean up test directories after generation (Windows compatible)
+    const testDirs = ['test-output', 'output', 'tmp', 'temp']
+    testDirs.forEach(dir => {
+      const testDirPath = path.join(targetDir, dir)
+      if (fs.existsSync(testDirPath)) {
+        try {
+          fs.rmSync(testDirPath, { recursive: true, force: true })
+          log(`🧹 Cleaned up ${dir} directory`, 'yellow')
+        } catch (error) {
+          // Ignore cleanup errors
+        }
+      }
+    })
+    
     return true
   } catch (error) {
     log(`❌ Error copying rules: ${error.message}`, 'red')
