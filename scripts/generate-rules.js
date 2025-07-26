@@ -87,9 +87,18 @@ function copyRules(sourceFile, targetDir) {
       fs.mkdirSync(targetDir, { recursive: true })
     }
     
-    // Copy the file
+    // Copy the main rules file
     fs.copyFileSync(sourcePath, targetPath)
     log(`✅ Generated .cursorrules in ${targetPath}`, 'green')
+    
+    // Copy prompt engineering guide if it exists
+    const promptEngineeringPath = path.join(__dirname, '..', 'rules/GENERAL/prompt-engineering.md')
+    if (fs.existsSync(promptEngineeringPath)) {
+      const promptTargetPath = path.join(targetDir, 'prompt-engineering.md')
+      fs.copyFileSync(promptEngineeringPath, promptTargetPath)
+      log(`📚 Copied prompt-engineering.md to ${promptTargetPath}`, 'cyan')
+    }
+    
     return true
   } catch (error) {
     log(`❌ Error copying rules: ${error.message}`, 'red')

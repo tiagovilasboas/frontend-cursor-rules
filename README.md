@@ -77,7 +77,9 @@ frontend-cursor-rules/
 ├── 📋 CODE_OF_CONDUCT.md
 ├── 📦 package.json
 ├── 📁 rules/
-│   ├── 🏗️ GENERAL/.cursorrules
+│   ├── 🏗️ GENERAL/
+│   │   ├── .cursorrules
+│   │   └── prompt-engineering.md
 │   ├── ⚛️ REACT/.cursorrules
 │   ├── 🟢 VUE/.cursorrules
 │   └── 🔷 ANGULAR/.cursorrules
@@ -92,6 +94,33 @@ frontend-cursor-rules/
 - **TypeScript strict** mode
 - **Component separation** (presentational/container)
 - **Custom hooks/composables** para lógica reutilizável
+
+## 🧠 **Prompt Engineering**
+
+### **C.R.E.A.T.E Formula**
+Para obter melhores resultados da IA, use a fórmula **C.R.E.A.T.E**:
+
+- **C**: **Character** - Defina o papel da IA (Arquiteto Frontend, Especialista em Performance, etc.)
+- **R**: **Request** - Seja específico sobre os requisitos
+- **E**: **Examples** - Forneça exemplos concretos
+- **A**: **Adjustments** - Refine e itere
+- **T**: **Type** - Especifique o formato de saída
+- **E**: **Extras** - Adicione instruções únicas
+
+### **Templates Práticos**
+O arquivo `prompt-engineering.md` inclui:
+- ✅ Templates para criação de componentes
+- ✅ Padrões para hooks/composables
+- ✅ Integração com APIs
+- ✅ Code review e refatoração
+- ✅ Definições de papéis da IA
+
+**Exemplo prático:**
+```bash
+# Ao gerar as rules, você também recebe:
+.cursorrules                    # Regras principais
+prompt-engineering.md          # Guia de prompt engineering
+```
 
 ## 🛠️ Instalação
 
