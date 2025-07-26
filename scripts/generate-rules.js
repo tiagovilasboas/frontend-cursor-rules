@@ -97,11 +97,11 @@ function copyRules(sourceFile, targetDir) {
     log(`✅ Generated .cursorrules in ${targetPath}`, 'green')
     
     // Copy prompt engineering guide if it exists
-    const promptEngineeringPath = path.join(__dirname, '..', 'docs/prompt-engineering.md')
+    const promptEngineeringPath = path.join(__dirname, '..', 'docs/PROMPT_ENGINEERING.md')
     if (fs.existsSync(promptEngineeringPath)) {
-      const promptTargetPath = path.join(targetDir, 'prompt-engineering.md')
+      const promptTargetPath = path.join(targetDir, 'PROMPT_ENGINEERING.md')
       fs.copyFileSync(promptEngineeringPath, promptTargetPath)
-      log(`📚 Copied prompt-engineering.md to ${promptTargetPath}`, 'cyan')
+      log(`📚 Copied PROMPT_ENGINEERING.md to ${promptTargetPath}`, 'cyan')
     }
     
     // Clean up test directories after generation (Windows compatible)

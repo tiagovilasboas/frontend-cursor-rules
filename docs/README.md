@@ -6,7 +6,7 @@
 - **📋 README.md** - Este arquivo (visão geral)
 - **🗺️ ROADMAP.md** - Plano futuro do projeto
 - **📊 EXAMPLES.md** - Exemplos práticos de uso
-- **🧠 prompt-engineering.md** - Guia de prompt engineering
+- **🧠 PROMPT_ENGINEERING.md** - Guia de prompt engineering
 - **📊 METRICS.md** - Métricas e case studies
 - **📈 REAL_CASE_STUDIES.md** - Análise de cases reais
 
@@ -19,7 +19,7 @@ node scripts/generate-rules.js react
 
 # Resultado:
 .cursorrules                    # Regras principais
-prompt-engineering.md          # Guia de prompts
+PROMPT_ENGINEERING.md          # Guia de prompts
 ```
 
 ### **2. 📊 Métricas e Cases**
@@ -38,7 +38,7 @@ prompt-engineering.md          # Guia de prompts
 - Arquitetura e boas práticas
 
 **📁 docs/** - Documentação e guias
-- `prompt-engineering.md` - Como usar a IA
+- `PROMPT_ENGINEERING.md` - Como usar a IA
 - `METRICS.md` - Evidências quantitativas
 - `REAL_CASE_STUDIES.md` - Validação real
 - `ROADMAP.md` - Plano futuro

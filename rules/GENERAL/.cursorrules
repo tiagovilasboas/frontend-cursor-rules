@@ -231,7 +231,7 @@ For optimal AI assistance, follow the C.R.E.A.T.E formula:
 - **T**: Type - Specify output format
 - **E**: Extras - Add unique instructions
 
-See `docs/prompt-engineering.md` for detailed templates and examples.
+See `docs/PROMPT_ENGINEERING.md` for detailed templates and examples.
 
 ## ⚠️ Important: Base, Not Silver Bullet
 

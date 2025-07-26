@@ -105,7 +105,7 @@ frontend-cursor-rules/
 │   ├── README.md
 │   ├── ROADMAP.md
 │   ├── EXAMPLES.md
-│   ├── prompt-engineering.md
+│   ├── PROMPT_ENGINEERING.md
 │   ├── METRICS.md
 │   └── REAL_CASE_STUDIES.md
 └── 📁 scripts/
@@ -157,7 +157,7 @@ Para obter melhores resultados da IA, use a fórmula **C.R.E.A.T.E**:
 - **E**: **Extras** - Adicione instruções únicas
 
 ### **Templates Práticos**
-O arquivo `prompt-engineering.md` inclui:
+O arquivo `PROMPT_ENGINEERING.md` inclui:
 - ✅ Templates para criação de componentes
 - ✅ Padrões para hooks/composables
 - ✅ Integração com APIs
@@ -168,7 +168,7 @@ O arquivo `prompt-engineering.md` inclui:
 ```bash
 # Ao gerar as rules, você também recebe:
 .cursorrules                    # Regras principais
-prompt-engineering.md          # Guia de prompt engineering
+PROMPT_ENGINEERING.md          # Guia de prompt engineering
 ```
 
 ## 🛠️ Instalação
